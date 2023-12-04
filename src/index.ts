@@ -27,12 +27,6 @@ export interface PresetThemeOptions<Theme extends Record<string, any>> {
   selectors?: Selectors
 }
 
-/**
- * @deprecated use `PresetThemeOptions` instead
- * @see PresetThemeOptions
- */
-export type PresetTheme<Theme extends Record<string, any>> = PresetThemeOptions<Theme>
-
 interface ThemeValue {
   theme: Record<string, Record<string, string>>
   name: string
