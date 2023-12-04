@@ -1,15 +1,16 @@
 # unocss-preset-theme
 
-This preset will help you easily make dynamic theme switching. Inspired by [here](https://github.com/unocss/unocss/issues/1390)
+This is a fork of [unocss-preset-theme](https://github.com/unpreset/unocss-preset-theme).
 
-> Next, I will build [unocss-preset-antd](https://github.com/Dunqing/unocss-preset-antd) based on this preset
+Just modify the following part:
+
+- [fix: safelist] Media query style in safelist config。[unocss-preset-theme #69](https://github.com/unpreset/unocss-preset-theme/pull/69)
 
 ## Installation
 
 ```bash
-npm i -D unocss-preset-theme
+npm i -D @wtto00/unocss-preset-theme
 ```
-
 
 ## Usages
 
@@ -18,43 +19,48 @@ Usually you just need to set your `light theme` to `unocss` and your `dark theme
 Just like this
 
 ```typescript
-import Unocss from 'unocss/vite'
-import type { Theme } from 'unocss/preset-uno'
-import { presetUno } from 'unocss'
-import presetTheme from 'unocss-preset-theme'
+import Unocss from "unocss/vite";
+import type { Theme } from "unocss/preset-uno";
+import { presetUno } from "unocss";
+import presetTheme from "@wtto00/unocss-preset-theme";
+import type { Theme } from "@unocss/preset-uno";
+import type { Preset } from "unocss";
 
 Unocss<Theme>({
   // Configure light themes
-  theme: {
-  },
+  theme: {},
   presets: [
     presetUno<Theme>(),
     presetTheme<Theme>({
       theme: {
         // Configure dark themes
-        dark: {
-        },
+        dark: {},
         // Configure compact themes
-        compact: {
-        }
-      }
-    })
-  ]
-})
+        compact: {},
+      },
+    }) as Preset<Theme>,
+  ],
+});
 ```
 
 This will be the final generated css
 
 ```css
 /* darkMode: class */
-.dark{}
-:root{}
-.compact{}
+.dark {
+}
+:root {
+}
+.compact {
+}
 
 /* If you set darkMode to media, the css will look like this */
-.compact{}
-@media (prefers-color-scheme: dark){}
-@media (prefers-color-scheme: light){}
+.compact {
+}
+@media (prefers-color-scheme: dark) {
+}
+@media (prefers-color-scheme: light) {
+}
 ```
 
 Then, you simply apply it as follows
@@ -81,7 +87,6 @@ Your different theme. like `{ dark: {}, other: {} }`
 ### selectors
 
 Customize the selectors of the generated css variables `{ light: ':root', [themeName]: '.[themeName]' }`
-
 
 ## Examples
 

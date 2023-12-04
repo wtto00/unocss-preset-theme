@@ -6,13 +6,13 @@
   "description": "Dynamic theme for unocss.",
   "author": "Dunqing <dengqing0821@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/Dunqing/unocss-preset-theme#readme",
+  "homepage": "https://github.com/wtto00/unocss-preset-theme#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Dunqing/unocss-preset-theme.git"
+    "url": "git+https://github.com/wtto00/unocss-preset-theme.git"
   },
   "bugs": {
-    "url": "https://github.com/Dunqing/unocss-preset-theme/issues"
+    "url": "https://github.com/wtto00/unocss-preset-theme/issues"
   },
   "keywords": [
     "unocss",
