@@ -52,23 +52,26 @@ export function presetTheme<T extends Record<string, any>>(options: PresetThemeO
 
           const setThemeValue = (name: string, index = 0, isColor = false) => {
             themeValues.set(name, {
-              theme: keys.reduce((obj, key) => {
-                let themeValue
-                  = getThemeVal(theme[key], themeKeys, index)
-                  || (key === 'light' ? getThemeVal(originalTheme, themeKeys) : null)
-                if (themeValue) {
-                  if (isColor) {
-                    const cssColor = parseCssColor(themeValue)
-                    if (cssColor?.components)
-                      themeValue = cssColor.components.join(' ')
+              theme: keys.reduce(
+                (obj, key) => {
+                  let themeValue
+                    = getThemeVal(theme[key], themeKeys, index)
+                    || (key === 'light' ? getThemeVal(originalTheme, themeKeys) : null)
+                  if (themeValue) {
+                    if (isColor) {
+                      const cssColor = parseCssColor(themeValue)
+                      if (cssColor?.components)
+                        themeValue = cssColor.components.join(' ')
+                    }
+                    obj[key] = {
+                      [name]: themeValue,
+                    }
                   }
-                  obj[key] = {
-                    [name]: themeValue,
-                  }
-                }
 
-                return obj
-              }, {} as ThemeValue['theme']),
+                  return obj
+                },
+                {} as ThemeValue['theme'],
+              ),
               name,
             })
           }

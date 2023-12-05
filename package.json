@@ -42,13 +42,16 @@
     "lint": "eslint .",
     "lint:fix": "pnpm run lint --fix",
     "typecheck": "tsc --noEmit",
-    "release": "bumpp package.json packages/**/package.json"
+    "release": "bumpp package.json packages/**/package.json",
+    "format": "prettier . --write --ignore-unknown",
+    "prepare": "husky install && husky set .husky/pre-commit \"npx lint-staged\"",
+    "preinstall": "npx only-allow pnpm"
   },
   "peerDependencies": {
     "@unocss/core": ">= 0.52.0"
   },
   "dependencies": {
-    "@unocss/core": "^0.57.1",
+    "@unocss/core": ">= 0.52.0",
     "@unocss/rule-utils": "^0.57.1"
   },
   "devDependencies": {
@@ -57,8 +60,22 @@
     "@unocss/preset-uno": "^0.57.1",
     "bumpp": "^9.2.0",
     "eslint": "^8.52.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.0",
     "typescript": "^5.2.2",
     "unbuild": "^2.0.0",
     "vitest": "^0.34.6"
+  },
+  "lint-staged": {
+    "*": [
+      "prettier --write --ignore-unknown"
+    ],
+    "*.{js,mjs,jsx,ts,mts,tsx,vue}": [
+      "eslint --fix"
+    ],
+    "*.{ts,mts,tsx}": [
+      "pnpm -F @wtto00/unocss-preset-theme tsc --noEmit"
+    ]
   }
 }

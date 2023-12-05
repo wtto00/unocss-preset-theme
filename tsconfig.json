@@ -2,15 +2,11 @@
   "compilerOptions": {
     "target": "es2017",
     "jsx": "preserve",
-    "lib": [
-      "esnext"
-    ],
+    "lib": ["esnext"],
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "types": [
-      "node"
-    ],
+    "types": ["node"],
     "strict": true,
     "strictNullChecks": true,
     "esModuleInterop": true,
