@@ -20,5 +20,16 @@
     "@wtto00/unocss-preset-theme": "workspace:^0.3.0",
     "typescript": "^5.2.2",
     "vite": "^4.5.0"
+  },
+  "lint-staged": {
+    "*": [
+      "prettier --write --ignore-unknown"
+    ],
+    "*.{js,mjs,jsx,ts,mts,tsx,vue}": [
+      "eslint --fix"
+    ],
+    "*.{ts,mts,tsx,vue}": [
+      "pnpm -F media vue-tsc --noEmit"
+    ]
   }
 }
