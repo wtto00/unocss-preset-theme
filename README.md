@@ -4,7 +4,7 @@ This is a fork of [unocss-preset-theme](https://github.com/unpreset/unocss-prese
 
 Just modify the following part:
 
-- [fix: safelist] Media query style in safelist config。[unocss-preset-theme #69](https://github.com/unpreset/unocss-preset-theme/pull/69)
+- fix: generated self-referencing CSS variables. [unocss-preset-theme #82](https://github.com/unpreset/unocss-preset-theme/pull/82)
 
 ## Installation
 
@@ -19,12 +19,12 @@ Usually you just need to set your `light theme` to `unocss` and your `dark theme
 Just like this
 
 ```typescript
-import Unocss from 'unocss/vite';
-import type { Theme } from 'unocss/preset-uno';
-import { presetUno } from 'unocss';
-import presetTheme from '@wtto00/unocss-preset-theme';
-import type { Theme } from '@unocss/preset-uno';
-import type { Preset } from 'unocss';
+import Unocss from 'unocss/vite'
+import type { Theme } from 'unocss/preset-uno'
+import { presetUno } from 'unocss'
+import presetTheme from '@wtto00/unocss-preset-theme'
+import type { Theme } from '@unocss/preset-uno'
+import type { Preset } from 'unocss'
 
 Unocss<Theme>({
   // Configure light themes
@@ -40,7 +40,7 @@ Unocss<Theme>({
       },
     }) as Preset<Theme>,
   ],
-});
+})
 ```
 
 This will be the final generated css

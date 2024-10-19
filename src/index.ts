@@ -69,7 +69,11 @@ export function presetTheme<T extends Record<string, any>>(options: PresetThemeO
                     if (isColor) {
                       const cssColor = parseCssColor(themeValue)
                       if (cssColor?.alpha !== undefined && cssColor?.alpha !== null) {
-                        if (new RegExp(`var\\(${escapeStringRegexp(`${prefix}-${preKeys.join('-')}-${configKey}--alpha`)}, 1\\)`).test(cssColor.alpha.toString())) {
+                        if (
+                          new RegExp(
+                            `var\\(${escapeStringRegexp(`${prefix}-${preKeys.join('-')}-${configKey}--alpha`)}, 1\\)`,
+                          ).test(cssColor.alpha.toString())
+                        ) {
                           const values = themeValues.get(name)
                           if (values)
                             themeAlphaValue = values.theme[themeKey][`${name}--alpha`]
@@ -79,7 +83,12 @@ export function presetTheme<T extends Record<string, any>>(options: PresetThemeO
                         }
                       }
                       if (cssColor?.components) {
-                        if (cssColor.components.length === 1 && new RegExp(`var\\(${escapeStringRegexp(`${prefix}-${preKeys.join('-')}-${configKey}`)}\\)`).test(cssColor.components[0].toString())) {
+                        if (
+                          cssColor.components.length === 1
+                          && new RegExp(
+                            `var\\(${escapeStringRegexp(`${prefix}-${preKeys.join('-')}-${configKey}`)}\\)`,
+                          ).test(cssColor.components[0].toString())
+                        ) {
                           const values = themeValues.get(name)
                           if (values)
                             themeValue = values.theme[themeKey][name]
@@ -90,7 +99,11 @@ export function presetTheme<T extends Record<string, any>>(options: PresetThemeO
                       }
                     }
                     else {
-                      if (new RegExp(`var\\(${escapeStringRegexp(`${prefix}-${preKeys.join('-')}-${configKey}`)}\\)`).test(themeValue)) {
+                      if (
+                        new RegExp(
+                          `var\\(${escapeStringRegexp(`${prefix}-${preKeys.join('-')}-${configKey}`)}\\)`,
+                        ).test(themeValue)
+                      ) {
                         const values = themeValues.get(name)
                         if (values) {
                           themeValue = values.theme[themeKey][name]
@@ -126,8 +139,13 @@ export function presetTheme<T extends Record<string, any>>(options: PresetThemeO
             curTheme[configKey] = wrapVar(name)
             if (isColor) {
               const cssColor = parseCssColor(val) || val
-              if (typeof cssColor !== 'string')
-                curTheme[configKey] = wrapCSSFunction(cssColor.type, curTheme[configKey], wrapVar(`${name}--alpha`, '1'))
+              if (typeof cssColor !== 'string') {
+                curTheme[configKey] = wrapCSSFunction(
+                  cssColor.type,
+                  curTheme[configKey],
+                  wrapVar(`${name}--alpha`, '1'),
+                )
+              }
             }
           }
           else {

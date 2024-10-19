@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { reactive } from 'vue';
 
 const theme = reactive({
   dark: false,
   compact: false,
-})
+});
 
 const onTheme: any = () => {
-  theme.dark = !theme.dark
-}
+  theme.dark = !theme.dark;
+};
 const onCompact: any = () => {
-  theme.compact = !theme.compact
-}
+  theme.compact = !theme.compact;
+};
 </script>
 
 <template>
@@ -39,19 +39,11 @@ const onCompact: any = () => {
       </div>
 
       <div class="mt-10 flex flex-col">
-        <h1 class="text-text text-xl font-bold mb-sm">
-          Preview
-        </h1>
-        <p class="text-text text-base">
-          This is a long text
-        </p>
-        <p class="text-primary/50 bg-container/20 text-base">
-          The color opacity is 0.5
-        </p>
+        <h1 class="text-text text-xl font-bold mb-sm">Preview</h1>
+        <p class="text-text text-base">This is a long text</p>
+        <p class="text-primary/50 bg-container/20 text-base">The color opacity is 0.5</p>
       </div>
-      <p class="text-text">
-        You can see all the css in <span class="font-bold">Devtools</span>
-      </p>
+      <p class="text-text">You can see all the css in <span class="font-bold">Devtools</span></p>
     </div>
   </div>
 </template>

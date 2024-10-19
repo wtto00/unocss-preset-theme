@@ -71,7 +71,7 @@
     "*": [
       "prettier --write --ignore-unknown"
     ],
-    "*.{js,mjs,jsx,ts,mts,tsx,vue}": [
+    "*.{js,mjs,jsx,ts,mts,tsx,vue,md}": [
       "eslint --fix"
     ],
     "*.{ts,mts,tsx}": [
